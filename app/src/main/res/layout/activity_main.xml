@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Control-Center Init"
+        android:id="@+id/ctrlInit"/>
+    <ScrollView
+        android:id="@+id/paramControl"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:paddingStart="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Control-Center DeInit"
+                android:id="@+id/ctrlDeInit"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GPIO Control"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/gpio34"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gpio34"
+                    android:paddingEnd="8dp"
+                    android:paddingRight="8dp"/>
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/gpio61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gpio61"
+                    android:paddingEnd="8dp"
+                    android:paddingRight="8dp"/>
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/gpio71"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gpio71"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="IOExpander IC TEST - 5V pullup line"/>
+
+
+            <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/expanderInit"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Expander INIT"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/ioUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IO-Exp-up"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/ioDown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IO-Exp-down"
+                        android:layout_margin="8dp"/>
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LED CLOCK TEST"/>
+            <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clk0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLK0"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clk1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLK1"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clk2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLK2"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clk3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLK3"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clk4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLK4"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clk5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLK5"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clk6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLK6"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clk7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLK7"
+                        android:layout_margin="8dp"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/turnOff"
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="turnOFf Led"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Depth Sensor Test"/>
+            <LinearLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_margin="8dp"
+                    android:id="@+id/getDepth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="getDepth"/>
+                <EditText
+                    android:id="@+id/depthRangeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="i2cDetect Call"/>
+            <LinearLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_margin="8dp"
+                    android:id="@+id/detectI2c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="detectI2c"/>
+                <TextView
+                    android:id="@+id/detectI2cLines"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>
