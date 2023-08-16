@@ -7,6 +7,7 @@
 #include "vl530x.h"
 #include "IOExpander.h"
 #include "GpioControls.h"
+#include "rrc2057.h"
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_adiuvo_sc66debug_MainActivity_stringFromJNI(
@@ -150,4 +151,102 @@ JNIEXPORT void JNICALL
 Java_com_adiuvo_sc66debug_NativeLib_ControllerDeInit(JNIEnv *env, jobject thiz) {
     turnOff();
     expander_pullDown();
+}
+
+
+/**
+ * Battery Related Functions
+ * */
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_getAbsoluteStateOfCharge(JNIEnv *env, jobject thiz) {
+    // TODO: implement getAbsoluteStateOfCharge()
+    return read_AbsoluteStateOfCharge();
+
+}
+
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1RemainingCapacity(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_RemainingCapacity()
+    return read_RemainingCapacity();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1FullChargeCapacity(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_FullChargeCapacity()
+    return read_FullChargeCapacity();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1RunTimeToEmpty(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_RunTimeToEmpty()
+    return read_RunTimeToEmpty();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1AverageTimeToEmpty(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_AverageTimeToEmpty()
+    return read_AverageTimeToEmpty();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1AverageTimeToFull(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_AverageTimeToFull()
+    return read_AverageTimeToFull();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1ChargingCurrent(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_ChargingCurrent()
+    return read_ChargingCurrent();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1ChargingVoltage(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_ChargingVoltage()
+    return read_ChargingVoltage();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1BatteryStatus(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_BatteryStatus()
+    return read_BatteryStatus();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1CycleCount(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_CycleCount()
+    return read_CycleCount();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1DesignCapacity(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_DesignCapacity()
+    return read_DesignCapacity();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1DesignVoltage(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_DesignVoltage()
+    return read_DesignVoltage();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1Specificationinfo(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_Specificationinfo()
+    return read_Specificationinfo();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1Current(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_Current()
+    return read_Current();
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_read_1Voltage(JNIEnv *env, jobject thiz) {
+    // TODO: implement read_Voltage()
+    return read_Voltage();
 }

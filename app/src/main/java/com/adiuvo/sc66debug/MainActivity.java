@@ -3,6 +3,7 @@ package com.adiuvo.sc66debug;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,24 +33,20 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.paramControl.setVisibility(View.GONE);
-        binding.gpio34.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    nativeLib.turnOnGpio34();
-                }else{
-                    nativeLib.turnOffGpio34();
-                }
+
+        binding.batteryStatus.setOnClickListener(view -> startActivity(new Intent(MainActivity.this,BatteryLoggerActivity.class)));
+        binding.gpio34.setOnCheckedChangeListener((compoundButton, b) -> {
+            if(b){
+                nativeLib.turnOnGpio34();
+            }else{
+                nativeLib.turnOffGpio34();
             }
         });
-        binding.gpio61.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    nativeLib.turnOnGpio61();
-                }else{
-                    nativeLib.turnOffGpio61();
-                }
+        binding.gpio61.setOnCheckedChangeListener((compoundButton, b) -> {
+            if(b){
+                nativeLib.turnOnGpio61();
+            }else{
+                nativeLib.turnOffGpio61();
             }
         });
         binding.gpio71.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

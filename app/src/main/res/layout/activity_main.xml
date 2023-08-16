@@ -190,6 +190,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="turnOFf Led"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Battery Data Logging Page"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/batteryStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VIEW BATTERY STATUS"/>
 
             <TextView
                 android:layout_width="match_parent"

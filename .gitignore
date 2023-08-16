@@ -17,3 +17,7 @@ local.properties
 # Project exclude paths
 /sdk/build/
 /sdk/build/intermediates/javac/debug/classes/
+/.idea/compiler.xml
+/.idea/gradle.xml
+/.idea/misc.xml
+/.idea/vcs.xml

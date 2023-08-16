@@ -38,4 +38,23 @@ public class NativeLib {
 
 
     public native void ControllerDeInit();
+
+
+
+    public native int getAbsoluteStateOfCharge();
+    public native int read_RemainingCapacity();
+    public native int read_FullChargeCapacity();
+    public native int read_RunTimeToEmpty();
+    public native int read_AverageTimeToEmpty();
+    public native int read_AverageTimeToFull();
+    public native int read_ChargingCurrent();
+    public native int read_Current();
+    public native int read_Voltage();
+    public native int read_ChargingVoltage();
+    public native int read_BatteryStatus();
+    public native int read_CycleCount();
+    public native int read_DesignCapacity();
+    public native int read_DesignVoltage();
+    public native int read_Specificationinfo();
+
 }
