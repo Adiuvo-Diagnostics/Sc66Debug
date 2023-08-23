@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 public class BatteryLoggerActivity extends AppCompatActivity {
 
@@ -24,6 +29,7 @@ public class BatteryLoggerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battery_logger);
+
 
     }
 
@@ -54,16 +60,50 @@ public class BatteryLoggerActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Log.d(TAG, "run: nativeLib.read_BatteryStatus();"+nativeLib.read_BatteryStatus());
-                Log.d(TAG,"run: read_Current()"+nativeLib.read_Current());
-                Log.d(TAG,"run: read_Voltage()"+nativeLib.read_Voltage());
-                Log.d(TAG,"run: getAbsoluteStateOfCharge()"+nativeLib.getAbsoluteStateOfCharge());
-                Log.d(TAG,"run: read_AverageTimeToEmpty()"+nativeLib.read_AverageTimeToEmpty());
-                Log.d(TAG,"run: read_AverageTimeToFull()"+nativeLib.read_AverageTimeToFull());
-                Log.d(TAG,"run: read_RunTimeToEmpty()"+nativeLib.read_RunTimeToEmpty());
-                Log.d(TAG,"run: read_RemainingCapacity()"+nativeLib.read_RemainingCapacity());
+                // Get the values from the native library
+                String batteryStatus = String.valueOf(nativeLib.read_BatteryStatus());
+                String current = String.valueOf(nativeLib.read_Current());
+                String voltage = String.valueOf(nativeLib.read_Voltage());
+                String absoluteStateOfCharge = String.valueOf(nativeLib.getAbsoluteStateOfCharge());
+                String averageTimeToEmpty = String.valueOf(nativeLib.read_AverageTimeToEmpty());
+                String averageTimeToFull = String.valueOf(nativeLib.read_AverageTimeToFull());
+                String runTimeToEmpty = String.valueOf(nativeLib.read_RunTimeToEmpty());
+                String remainingCapacity = String.valueOf(nativeLib.read_RemainingCapacity());
 
+                // Log the values
+                Log.d(TAG, "run: nativeLib.read_BatteryStatus();"+batteryStatus);
+                Log.d(TAG,"run: read_Current()"+current);
+                Log.d(TAG,"run: read_Voltage()"+voltage);
+                Log.d(TAG,"run: getAbsoluteStateOfCharge()"+absoluteStateOfCharge);
+                Log.d(TAG,"run: read_AverageTimeToEmpty()"+averageTimeToEmpty);
+                Log.d(TAG,"run: read_AverageTimeToFull()"+averageTimeToFull);
+                Log.d(TAG,"run: read_RunTimeToEmpty()"+runTimeToEmpty);
+                Log.d(TAG,"run: read_RemainingCapacity()"+remainingCapacity);
+
+                // Create a new row with the values
+                TableRow newRow = new TableRow(BatteryLoggerActivity.this);
+                newRow.addView(createTextView(batteryStatus));
+                newRow.addView(createTextView(current));
+                newRow.addView(createTextView(voltage));
+                newRow.addView(createTextView(absoluteStateOfCharge));
+                newRow.addView(createTextView(averageTimeToEmpty));
+                newRow.addView(createTextView(averageTimeToFull));
+                newRow.addView(createTextView(runTimeToEmpty));
+                newRow.addView(createTextView(remainingCapacity));
+
+                // Get the table from the layout and add the new row
+                TableLayout table = findViewById(R.id.table);
+                table.addView(newRow, 1); // Add at the top of the table
             }
         });
     }
+
+    private TextView createTextView(String text) {
+        TextView textView = new TextView(this);
+        textView.setText(text);
+        textView.setGravity(Gravity.CENTER);
+        textView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.0f));
+        return textView;
+    }
+
 }

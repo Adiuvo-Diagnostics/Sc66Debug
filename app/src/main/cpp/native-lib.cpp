@@ -250,3 +250,26 @@ Java_com_adiuvo_sc66debug_NativeLib_read_1Voltage(JNIEnv *env, jobject thiz) {
     // TODO: implement read_Voltage()
     return read_Voltage();
 }
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_setSuperchargeMode(JNIEnv* env, jobject obj, jstring value) {
+    // Convert jstring to C-string (char*)
+    const char *valueCStr = env->GetStringUTFChars(value, NULL);
+    if (!valueCStr) return; // Out of memory error thrown
+
+    // Construct the command
+    char command[256];
+    snprintf(command, sizeof(command), "i2cset -y 6 0x3f %s w", valueCStr);
+
+    // Execute the command
+    FILE* pipe = popen(command, "r");
+    if (!pipe) {
+        // Handle error
+        env->ReleaseStringUTFChars(value, valueCStr);
+        return;
+    }
+    pclose(pipe);
+
+    // Release the C-string
+    env->ReleaseStringUTFChars(value, valueCStr);
+}

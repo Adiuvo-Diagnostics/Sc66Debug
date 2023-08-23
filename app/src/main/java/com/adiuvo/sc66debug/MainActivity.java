@@ -49,14 +49,11 @@ public class MainActivity extends AppCompatActivity {
                 nativeLib.turnOffGpio61();
             }
         });
-        binding.gpio71.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    nativeLib.turnOnGpio71();
-                }else{
-                    nativeLib.turnOffGpio71();
-                }
+        binding.gpio71.setOnCheckedChangeListener((compoundButton, b) -> {
+            if(b){
+                nativeLib.turnOnGpio71();
+            }else{
+                nativeLib.turnOffGpio71();
             }
         });
 
@@ -109,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
                 String data= String.valueOf(nativeLib.getDepth());
                 Log.d("TAG", "onClick: nativeLib.getDepth()"+ data);
                 binding.depthRangeText.setText(data+"mm");
+            }
+        });
+
+        binding.tarsma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nativeLib.setSuperchargeMode(binding.batteryChargerValue.getText().toString());
             }
         });
 

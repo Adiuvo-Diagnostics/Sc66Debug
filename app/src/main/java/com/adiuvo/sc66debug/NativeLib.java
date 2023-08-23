@@ -57,4 +57,6 @@ public class NativeLib {
     public native int read_DesignVoltage();
     public native int read_Specificationinfo();
 
+    public native void setSuperchargeMode(String  value);
+
 }

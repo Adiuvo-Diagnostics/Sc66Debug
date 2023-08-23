@@ -221,6 +221,37 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Battery SUPER CHARGE"/>
+            <LinearLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+               <TextView
+                   android:textStyle="bold"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="BQ24765 set Charger value 0x3f"/>
+
+                <EditText
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:id="@+id/batteryChargerValue"
+                    android:layout_width="wrap_content"
+                    android:text="0x0200"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update the Charger Currents"
+                android:id="@+id/tarsma"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -242,10 +273,8 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
-
-
-
         </LinearLayout>
+
 
 
 

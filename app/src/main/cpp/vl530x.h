@@ -116,7 +116,7 @@ uint16_t vl53l0x_getDepth(){
 //    struct timespec reqDelay = {0, 300000000};
 //    nanosleep(&reqDelay, (struct timespec *) NULL);
 
-    return dist;
+    return (dist-81.66);
 }
 
 #endif //ILLUMINATE_APP_VL530X_H
