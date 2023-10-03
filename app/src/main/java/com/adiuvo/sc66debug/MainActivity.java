@@ -16,6 +16,8 @@ import com.google.android.material.checkbox.MaterialCheckBox;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -116,25 +118,60 @@ public class MainActivity extends AppCompatActivity {
         /*I2C  SECTION*/
         binding.detectI2c.setOnClickListener(view -> {
             try {
-                Log.d("TAG", "onClick: detectI2c");
-                Process process = Runtime.getRuntime().exec("i2cdetect -y 6");
-                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                StringBuilder output = new StringBuilder();
+                Log.d("TAG", "onClick: detectAllI2c");
+
+                // Get the list of available I2C bus numbers
+                Process busListProcess = Runtime.getRuntime().exec("i2cdetect -l");
+                busListProcess.waitFor();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(busListProcess.getInputStream()));
                 String line;
+                List<String> busNumbers = new ArrayList<>();
                 while ((line = reader.readLine()) != null) {
-                    output.append(line).append("\n");
+                    // Parse the bus numbers from the output
+                    if (line.contains("i2c-")) {
+                        String[] parts = line.split("\\s+");
+                        if (parts.length >= 2) {
+                            busNumbers.add(parts[0].replace("i2c-", ""));
+                        }
+                    }
                 }
                 reader.close();
-                process.waitFor();
-                String result = output.toString();
-                binding.detectI2cLines.setText(result);
+
+                StringBuilder allResults = new StringBuilder();
+                for (String busNumber : busNumbers) {
+                    Process process = Runtime.getRuntime().exec("i2cdetect -y " + busNumber);
+                    process.waitFor();
+
+                    int exitValue = process.exitValue();
+                    if (exitValue == 0) {
+                        reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                        StringBuilder output = new StringBuilder();
+                        while ((line = reader.readLine()) != null) {
+                            output.append(line).append("\n");
+                        }
+                        reader.close();
+
+                        allResults.append("Results for bus ").append(busNumber).append(":\n");
+                        allResults.append(output).append("\n");
+                    } else {
+                        allResults.append("Error for bus ").append(busNumber).append(": Process exited with non-zero status ").append(exitValue).append("\n");
+                    }
+                }
+
+                String allResultsText = allResults.toString();
+                runOnUiThread(() -> binding.detectI2cLines.setText(allResultsText)); // Update UI
+
             } catch (IOException e) {
                 e.printStackTrace();
-                binding.detectI2cLines.setText("Error: " + e.getMessage());
+                String errorMsg = "Error: " + e.getMessage();
+                runOnUiThread(() -> binding.detectI2cLines.setText(errorMsg)); // Update UI
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                binding.detectI2cLines.setText("Error: " + e.getMessage());
+                String errorMsg = "Error: " + e.getMessage();
+                runOnUiThread(() -> binding.detectI2cLines.setText(errorMsg)); // Update UI
             }
+
         });
 
     }
