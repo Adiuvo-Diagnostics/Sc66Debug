@@ -8,6 +8,7 @@
 #include "IOExpander.h"
 #include "GpioControls.h"
 #include "rrc2057.h"
+#include "icm20689.h"
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_adiuvo_sc66debug_MainActivity_stringFromJNI(
@@ -273,3 +274,5 @@ Java_com_adiuvo_sc66debug_NativeLib_setSuperchargeMode(JNIEnv* env, jobject obj,
     // Release the C-string
     env->ReleaseStringUTFChars(value, valueCStr);
 }
+
+

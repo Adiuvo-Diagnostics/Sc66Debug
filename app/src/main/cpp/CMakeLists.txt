@@ -26,7 +26,8 @@ project("sc66debug")
 # used in the AndroidManifest.xml file.
 add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
-        native-lib.cpp)
+        native-lib.cpp
+        icm20689-lib.cpp)
 
 
 find_library( # Sets the name of the path variable.

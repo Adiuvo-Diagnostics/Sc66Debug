@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Sc66Debug"
         tools:targetApi="31">
         <activity
+            android:name=".GyroScopeandAccelerometer"
+            android:exported="false" />
+        <activity
             android:name=".BatteryLoggerActivity"
             android:exported="false" />
         <activity

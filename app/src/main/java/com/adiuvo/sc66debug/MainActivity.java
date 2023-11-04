@@ -11,11 +11,13 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.adiuvo.sc66debug.databinding.ActivityMainBinding;
+import com.adiuvo.sc66debug.managers.ICM20689Manager;
 import com.google.android.material.checkbox.MaterialCheckBox;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.paramControl.setVisibility(View.GONE);
+//        binding.paramControl.setVisibility(View.GONE);
 
         binding.batteryStatus.setOnClickListener(view -> startActivity(new Intent(MainActivity.this,BatteryLoggerActivity.class)));
         binding.gpio34.setOnCheckedChangeListener((compoundButton, b) -> {
@@ -60,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
         /* Controller SECTION*/
         binding.ctrlInit.setOnClickListener(view -> {
             nativeLib.ControllerInit();
-            binding.paramControl.setVisibility(View.VISIBLE);
+//            binding.paramControl.setVisibility(View.VISIBLE);
         });
         binding.ctrlDeInit.setOnClickListener(view -> {
             nativeLib.ControllerDeInit();
-            binding.paramControl.setVisibility(View.GONE);
+//            binding.paramControl.setVisibility(View.GONE);
         });
 
 
@@ -141,6 +143,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.gyroTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,GyroScopeandAccelerometer.class));
+            }
+        });
+
+        binding.openI2C.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        binding.initialize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ICM20689Manager icm20689Manager=new ICM20689Manager();
+                icm20689Manager.openI2C();
+            }
+        });
+
+        binding.readAccel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ICM20689Manager icm20689Manager=new ICM20689Manager();
+                icm20689Manager.openI2C();
+                icm20689Manager.initializeSensor();
+                Log.d("TAG", "onClick: "+ Arrays.toString(icm20689Manager.readAccelerometer()));
+            }
+        });
+
+        binding.readGyro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ICM20689Manager icm20689Manager=new ICM20689Manager();
+                icm20689Manager.openI2C();
+                icm20689Manager.initializeSensor();
+                Log.d("TAG", "onClick: "+ Arrays.toString(icm20689Manager.readGyroscope()));
+            }
+        });
     }
 
 
