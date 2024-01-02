@@ -102,7 +102,8 @@ uint16_t vl53l0x_getDepth(){
     uint16_t dist;
     do{
         dist = DistanceSensor_readReg(distanceSensorFD);
-        if (dist > 20 && dist < 8190) {
+        LOGE("RAW Reading: %u mm\n", dist);
+        if (dist > 0 && dist < 8190) {
             LOGE("Reading: %u mm\n", dist);
         } else {
             LOGE("Reading: Nothing detected\n");
@@ -115,8 +116,8 @@ uint16_t vl53l0x_getDepth(){
 //    // Wait 0.25 sec between each reading
 //    struct timespec reqDelay = {0, 300000000};
 //    nanosleep(&reqDelay, (struct timespec *) NULL);
-
-    return (dist-81.66);
+    LOGE("Final Reading: %u mm\n", dist-90);
+    return (dist-90);
 }
 
 #endif //ILLUMINATE_APP_VL530X_H

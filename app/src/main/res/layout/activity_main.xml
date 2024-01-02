@@ -7,331 +7,338 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Control Center - Inits and deinits PLL and IOExpander"/>
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Control-Center Init"
-        android:id="@+id/ctrlInit"/>
-    <ScrollView
-        android:id="@+id/paramControl"
-
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:paddingStart="8dp"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Control-Center DeInit"
-                android:id="@+id/ctrlDeInit"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="GPIO Control"/>
+            android:text="Control Center - Inits and deinits PLL and IOExpander"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Control-Center Init"
+            android:id="@+id/ctrlInit"/>
+        <ScrollView
+            android:id="@+id/paramControl"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/gpio34"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="gpio34"
-                    android:checked="true"
-                    android:paddingEnd="8dp"
-                    android:paddingRight="8dp"/>
-
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/gpio61"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="gpio61"
-                    android:checked="true"
-                    android:paddingEnd="8dp"
-                    android:paddingRight="8dp"/>
-
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/gpio71"
-                    android:layout_width="wrap_content"
-                    android:checked="true"
-                    android:layout_height="wrap_content"
-                    android:text="gpio71"/>
-
-            </LinearLayout>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="IOExpander IC TEST - 5V pullup line"/>
-
-
-            <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/expanderInit"
-                        android:visibility="gone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Expander INIT"
-                        android:layout_margin="8dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/ioUp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="IO-Exp-up"
-                        android:layout_margin="8dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/ioDown"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="IO-Exp-down"
-                        android:layout_margin="8dp"/>
-
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="LED CLOCK TEST"/>
-            <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/clk0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CLK0"
-                        android:layout_margin="8dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/clk1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CLK1"
-                        android:layout_margin="8dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/clk2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CLK2"
-                        android:layout_margin="8dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/clk3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CLK3"
-                        android:layout_margin="8dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/clk4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CLK4"
-                        android:layout_margin="8dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/clk5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CLK5"
-                        android:layout_margin="8dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/clk6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CLK6"
-                        android:layout_margin="8dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/clk7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CLK7"
-                        android:layout_margin="8dp"/>
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/turnOff"
-                android:layout_margin="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="turnOFf Led"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Battery Data Logging Page"/>
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/batteryStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="VIEW BATTERY STATUS"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Depth Sensor Test"/>
-            <LinearLayout
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <com.google.android.material.button.MaterialButton
-                    android:layout_margin="8dp"
-                    android:id="@+id/getDepth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="getDepth"/>
-                <EditText
-                    android:id="@+id/depthRangeText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Battery SUPER CHARGE"/>
-            <LinearLayout
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-               <TextView
-                   android:textStyle="bold"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="BQ24765 set Charger value 0x3f"/>
-
-                <EditText
-                    android:gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:id="@+id/batteryChargerValue"
-                    android:layout_width="wrap_content"
-                    android:text="0x0200"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Update the Charger Currents"
-                android:id="@+id/tarsma"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="i2cDetect Call"/>
-            <LinearLayout
-                android:padding="8dp"
+                android:paddingStart="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <com.google.android.material.button.MaterialButton
-                    android:layout_margin="8dp"
-                    android:id="@+id/detectI2c"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="detectI2c"/>
+                    android:layout_gravity="center_horizontal"
+                    android:text="Control-Center DeInit"
+                    android:id="@+id/ctrlDeInit"/>
                 <TextView
-                    android:id="@+id/detectI2cLines"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <com.google.android.material.button.MaterialButton
-                    android:layout_margin="8dp"
-                    android:id="@+id/gyroTest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GPIO Control"/>
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="gyroTest"/>
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
-                <HorizontalScrollView
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/gpio34"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="gpio34"
+                        android:checked="true"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"/>
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/gpio61"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="gpio61"
+                        android:checked="true"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"/>
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/gpio71"
+                        android:layout_width="wrap_content"
+                        android:checked="true"
+                        android:layout_height="wrap_content"
+                        android:text="gpio71"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="IOExpander IC TEST - 5V pullup line"/>
+
+
+                <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
                         <com.google.android.material.button.MaterialButton
-                            android:layout_margin="8dp"
-                            android:id="@+id/openI2C"
+                            android:id="@+id/expanderInit"
+                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="openI2C"/>
+                            android:text="Expander INIT"
+                            android:layout_margin="8dp"/>
 
                         <com.google.android.material.button.MaterialButton
-                            android:layout_margin="8dp"
-                            android:id="@+id/initialize"
+                            android:id="@+id/ioUp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="initialize"/>
-
-
-                        <com.google.android.material.button.MaterialButton
-                            android:layout_margin="8dp"
-                            android:id="@+id/readAccel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="readAccel"/>
+                            android:text="IO-Exp-up"
+                            android:layout_margin="8dp"/>
 
                         <com.google.android.material.button.MaterialButton
-                            android:layout_margin="8dp"
-                            android:id="@+id/readGyro"
+                            android:id="@+id/ioDown"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="readGyro"/>
+                            android:text="IO-Exp-down"
+                            android:layout_margin="8dp"/>
+
 
                     </LinearLayout>
 
                 </HorizontalScrollView>
-            </LinearLayout>
-        </LinearLayout>
 
-    </ScrollView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LED CLOCK TEST"/>
+                <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/clk0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CLK0"
+                            android:layout_margin="8dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/clk1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CLK1"
+                            android:layout_margin="8dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/clk2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CLK2"
+                            android:layout_margin="8dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/clk3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CLK3"
+                            android:layout_margin="8dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/clk4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CLK4"
+                            android:layout_margin="8dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/clk5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CLK5"
+                            android:layout_margin="8dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/clk6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CLK6"
+                            android:layout_margin="8dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/clk7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CLK7"
+                            android:layout_margin="8dp"/>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/turnOff"
+                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="turnOFf Led"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Battery Data Logging Page"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/batteryStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="VIEW BATTERY STATUS"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Depth Sensor Test"/>
+                <LinearLayout
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_margin="8dp"
+                        android:id="@+id/getDepth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="getDepth"/>
+                    <EditText
+                        android:id="@+id/depthRangeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Battery SUPER CHARGE"/>
+                <LinearLayout
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BQ24765 set Charger value 0x3f"/>
+
+                    <EditText
+                        android:gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:id="@+id/batteryChargerValue"
+                        android:layout_width="wrap_content"
+                        android:text="0x0200"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Update the Charger Currents"
+                    android:id="@+id/tarsma"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="i2cDetect Call"/>
+                <LinearLayout
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_margin="8dp"
+                        android:id="@+id/detectI2c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="detectI2c"/>
+                    <TextView
+                        android:id="@+id/detectI2cLines"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_margin="8dp"
+                        android:id="@+id/gyroTest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="gyroTest"/>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.button.MaterialButton
+                                android:layout_margin="8dp"
+                                android:id="@+id/openI2C"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="openI2C"/>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:layout_margin="8dp"
+                                android:id="@+id/initialize"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="initialize"/>
+
+
+                            <com.google.android.material.button.MaterialButton
+                                android:layout_margin="8dp"
+                                android:id="@+id/readAccel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="readAccel"/>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:layout_margin="8dp"
+                                android:id="@+id/readGyro"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="readGyro"/>
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
 
 
 </LinearLayout>
