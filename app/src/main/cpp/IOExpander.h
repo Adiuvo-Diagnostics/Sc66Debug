@@ -25,28 +25,14 @@
 //  REG_CONFIG          0x03        // Configuration Register        (R/W)  B00000011
 //
 //*===============================================================================================================*
-//  REGISTER 0: INPUT REGIASTER - READ ONLY (0 = LOW / 1 = HIGH)
-//*===============================================================================================================*
-//
-//  DEFAULT (WITH NO EXTENRAL INPUT SIGNAL CONNECTED): 'HIGH' (ALL IO PINS HAVE WEAK PULL-UP RESISTORS)
-//
-//  DEFAULT
-//  PIN_IO0             BIT 0          1
-//  PIN_IO1             BIT 1          1
-//  PIN_IO2             BIT 2          1
-//  PIN_IO3             BIT 3          1
-//
-//  BITS 4-7: NOT USED (DEFAULT: 1)
-//
-//*===============================================================================================================*
 //  REGISTER 1: OUTPUT REGIASTER - READ / WRITE (0 = LOW / 1 = HIGH)
 //*===============================================================================================================*
 //
 //  DEFAULT
-//  IO0                 BIT 0          1
-//  IO1                 BIT 1          1
-//  IO2                 BIT 2          1
-//  IO3                 BIT 3          1
+//  IO0                 BIT 0          1  //USB_LED   - RED            OUT
+//  IO1                 BIT 1          1  //BAT_STATUS_LED -GREEN       OUT
+//  IO2                 BIT 2          1  //VBUS_HOST             OUT
+//  IO3                 BIT 3          1  //CHARGER_CE               IN
 //
 //  BITS 4-7: NOT USED (DEFAULT: 1) - MAY BE SET AS '0' OR '1'
 //
@@ -57,13 +43,14 @@
 //  POWER-UP DEFAULT: ALL PINS ARE SET AS 'INPUT' (1)
 //
 //  DEFAULT             BITS          Default  Req
-//  PIN_IO0             BIT 0         1        0     //USB_LED               OUT
-//  PIN_IO1             BIT 1         1        0     //BAT_STATUS_LED        OUT
-//  PIN_IO2             BIT 2         1        0     //PWR_SW_EN             OUT
-//  PIN_IO3             BIT 3         1        1     //INT_BAT               IN
+//  PIN_IO0             BIT 0         1        0
+//  PIN_IO1             BIT 1         1        0
+//  PIN_IO2             BIT 2         1        0
+//  PIN_IO3             BIT 3         1        1
 //  BITS 4-7: NOT USED (DEFAULT: 1) - MAY BE SET AS '0' OR '1'
 
 #define IO3_READ_REGISTER 0x08               // To set 0000 1000 to configure the REGISTERS as input or output ports.
+#define IO0_3_WRITE_REGISTERS 0x15               // To set 0000 1111 to configure the REGISTERS as input or output ports.
 #define IO_USBandBatteryLED_PULLUP 0x03      // To set 0000 0011
 #define IO_PWR_Switch_UP  0x04               // To set 0000 0100
 #define IO_PULL_ALL_UP  0x15                 // To set 0000 1111
@@ -72,7 +59,7 @@
 void expander_init()
 {
     opendevice();
-    uint8_t data=IO3_READ_REGISTER;
+    uint8_t data=IO0_3_WRITE_REGISTERS;
     write_i2c_device_8(PCA9356_ADDRESS, REG_CONFIG,&data);
     LOGE("IOExpander.h: expander Data %hhu",data);
     LOGE("IOExpander.h: expander addr of Data %l",&data);
@@ -81,22 +68,31 @@ void expander_init()
     closedevice();
 }
 
-void expander_pullUP() {
+
+
+void enable_5v(){
     opendevice();
-    uint8_t data=IO_PWR_Switch_UP;
+    uint8_t data=0x0C;
     write_i2c_device_8(PCA9356_ADDRESS, REG_OUTPUT,&data);
     closedevice();
 }
-void expander_pullDown() {
+void disable_5v(){
     opendevice();
-    uint8_t data=IO_PWR_Switch_DOWN;
+    uint8_t data=0x08;
     write_i2c_device_8(PCA9356_ADDRESS, REG_OUTPUT,&data);
     closedevice();
 }
 
-void expander_pullEverythingUP() {
+void get_GREEN_LED(){
     opendevice();
-    uint8_t data=IO_PULL_ALL_UP;
+    uint8_t data=0x0E;
+    write_i2c_device_8(PCA9356_ADDRESS, REG_OUTPUT,&data);
+    closedevice();
+}
+
+void get_RED_LED(){
+    opendevice();
+    uint8_t data=0x15;
     write_i2c_device_8(PCA9356_ADDRESS, REG_OUTPUT,&data);
     closedevice();
 }

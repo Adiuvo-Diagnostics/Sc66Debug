@@ -79,6 +79,18 @@ public class MainActivity extends AppCompatActivity {
                 nativeLib.IoExpanderUp();
             }
         });
+        binding.redLight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nativeLib.get_RED_LED();
+            }
+        });
+        binding.greenLight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nativeLib.get_GREEN_LED();
+            }
+        });
         binding.ioDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

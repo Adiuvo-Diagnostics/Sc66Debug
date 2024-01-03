@@ -31,7 +31,7 @@ public class NativeLib {
 
     public native void IoExpanderUp();
     public native void IoExpanderDown();
-    public native void IoExpanderInit();
+
     public native void ControllerInit();
 
     public native int getDepth();
@@ -59,4 +59,6 @@ public class NativeLib {
 
     public native void setSuperchargeMode(String  value);
 
+    public native void get_RED_LED();
+    public native void get_GREEN_LED();
 }

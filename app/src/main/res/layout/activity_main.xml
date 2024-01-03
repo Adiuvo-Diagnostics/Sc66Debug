@@ -115,6 +115,20 @@
                             android:text="IO-Exp-down"
                             android:layout_margin="8dp"/>
 
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/redLight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="redLight"
+                            android:layout_margin="8dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/greenLight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="greenLight"
+                            android:layout_margin="8dp"/>
+
 
                     </LinearLayout>
 

@@ -119,14 +119,14 @@ extern "C"
 JNIEXPORT void JNICALL
 Java_com_adiuvo_sc66debug_NativeLib_IoExpanderUp(JNIEnv *env, jobject thiz) {
     // TODO: implement IoExpanderUp()
-    expander_pullEverythingUP();
+    enable_5v();
 }
 
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_adiuvo_sc66debug_NativeLib_IoExpanderDown(JNIEnv *env, jobject thiz) {
     // TODO: implement IoExpanderDown()
-    expander_pullDown();
+    disable_5v();
 }
 extern "C"
 JNIEXPORT void JNICALL
@@ -151,7 +151,7 @@ extern "C"
 JNIEXPORT void JNICALL
 Java_com_adiuvo_sc66debug_NativeLib_ControllerDeInit(JNIEnv *env, jobject thiz) {
     turnOff();
-    expander_pullDown();
+    disable_5v();
 }
 
 
@@ -276,3 +276,16 @@ Java_com_adiuvo_sc66debug_NativeLib_setSuperchargeMode(JNIEnv* env, jobject obj,
 }
 
 
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_get_1RED_1LED(JNIEnv *env, jobject thiz) {
+    // TODO: implement get_RED_LED()
+    get_RED_LED();
+}
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_get_1GREEN_1LED(JNIEnv *env, jobject thiz) {
+    // TODO: implement get_GREEN_LED()
+    get_GREEN_LED();
+}
