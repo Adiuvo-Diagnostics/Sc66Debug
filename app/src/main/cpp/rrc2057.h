@@ -184,6 +184,9 @@ int read_Current() {
 int read_AbsoluteStateOfCharge() {
     return readI2CByte(6,address,ABSOLUTESTATEOFCHARGE_REG);
 }
+int read_RelativeStateOfCharge() {
+    return readI2CByte(6,address,RELATIVESTATEOFCHARGE_REG);
+}
 
 int read_RemainingCapacity() {
     return readI2CByte(6, address, REMAININGCAPACITY_REG);

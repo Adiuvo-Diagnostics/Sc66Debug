@@ -63,11 +63,11 @@
 //  PIN_IO3             BIT 3         1        1     //INT_BAT               IN
 //  BITS 4-7: NOT USED (DEFAULT: 1) - MAY BE SET AS '0' OR '1'
 
-#define IO3_READ_REGISTER 0x08               // To set 0000 1000 to configure the REGISTERS as input or output ports.
+#define IO3_READ_REGISTER 0x00               // To set 0000 1000 to configure the REGISTERS as input or output ports.
 #define IO_USBandBatteryLED_PULLUP 0x03      // To set 0000 0011
 #define IO_PWR_Switch_UP  0x04               // To set 0000 0100
-#define IO_PULL_ALL_UP  0x15                 // To set 0000 1111
-#define IO_PWR_Switch_DOWN 0x00              // To set 0000 0000
+#define IO_PULL_ALL_UP  0x0C                 // To set 0000 1100
+#define IO_PWR_Switch_DOWN 0x08              // To set 0000 0000
 
 void expander_init()
 {

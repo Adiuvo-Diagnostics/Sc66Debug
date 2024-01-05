@@ -42,6 +42,7 @@ public class NativeLib {
 
 
     public native int getAbsoluteStateOfCharge();
+    public native int getRelativeStateOfCharge();
     public native int read_RemainingCapacity();
     public native int read_FullChargeCapacity();
     public native int read_RunTimeToEmpty();

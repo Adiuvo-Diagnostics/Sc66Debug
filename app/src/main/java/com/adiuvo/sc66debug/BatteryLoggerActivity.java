@@ -65,6 +65,7 @@ public class BatteryLoggerActivity extends AppCompatActivity {
                 String current = String.valueOf(nativeLib.read_Current());
                 String voltage = String.valueOf(nativeLib.read_Voltage());
                 String absoluteStateOfCharge = String.valueOf(nativeLib.getAbsoluteStateOfCharge());
+                String relativeStateOfCharge = String.valueOf(nativeLib.getRelativeStateOfCharge());
                 String averageTimeToEmpty = String.valueOf(nativeLib.read_AverageTimeToEmpty());
                 String averageTimeToFull = String.valueOf(nativeLib.read_AverageTimeToFull());
                 String runTimeToEmpty = String.valueOf(nativeLib.read_RunTimeToEmpty());
@@ -75,6 +76,7 @@ public class BatteryLoggerActivity extends AppCompatActivity {
                 Log.d(TAG,"run: read_Current()"+current);
                 Log.d(TAG,"run: read_Voltage()"+voltage);
                 Log.d(TAG,"run: getAbsoluteStateOfCharge()"+absoluteStateOfCharge);
+                Log.d(TAG,"run: getRelativeStateOfCharge()"+relativeStateOfCharge);
                 Log.d(TAG,"run: read_AverageTimeToEmpty()"+averageTimeToEmpty);
                 Log.d(TAG,"run: read_AverageTimeToFull()"+averageTimeToFull);
                 Log.d(TAG,"run: read_RunTimeToEmpty()"+runTimeToEmpty);
@@ -86,6 +88,7 @@ public class BatteryLoggerActivity extends AppCompatActivity {
                 newRow.addView(createTextView(current));
                 newRow.addView(createTextView(voltage));
                 newRow.addView(createTextView(absoluteStateOfCharge));
+                newRow.addView(createTextView(relativeStateOfCharge));
                 newRow.addView(createTextView(averageTimeToEmpty));
                 newRow.addView(createTextView(averageTimeToFull));
                 newRow.addView(createTextView(runTimeToEmpty));

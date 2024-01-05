@@ -163,7 +163,13 @@ JNIEXPORT jint JNICALL
 Java_com_adiuvo_sc66debug_NativeLib_getAbsoluteStateOfCharge(JNIEnv *env, jobject thiz) {
     // TODO: implement getAbsoluteStateOfCharge()
     return read_AbsoluteStateOfCharge();
+}
 
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_adiuvo_sc66debug_NativeLib_getRelativeStateOfCharge(JNIEnv *env, jobject thiz) {
+    // TODO: implement getAbsoluteStateOfCharge()
+    return read_RelativeStateOfCharge();
 }
 
 
